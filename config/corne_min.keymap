@@ -11,13 +11,6 @@
 / {
 
         behaviors {
-                j_escape_200: j_escape_200 {
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <200>;
-                        bindings = <&kp J>, <&kp ESC>;
-                };
-
                 j_escape_150: j_escape_150 {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
@@ -25,19 +18,36 @@
                         bindings = <&kp J>, <&kp ESC>;
                 };
 
+                hml: home_row_mod_left {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
 
-                j_escape_100: j_escape_100 {
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <100>;
-                        bindings = <&kp J>, <&kp ESC>;
+                        flavor = "balanced";
+                        tapping-term-ms = <250>;
+                        quick-tap-ms = <150>;
+                        require-prior-idle-ms = <125>;
+
+                        bindings = <&kp>, <&kp>;
+
+                        /* Put the right-hand key-position numbers here. */
+                        hold-trigger-key-positions = < /* right side */ >;
+                        hold-trigger-on-release;
                 };
 
-                j_escape_50: j_escape_50 {
-                        compatible = "zmk,behavior-tap-dance";
-                        #binding-cells = <0>;
-                        tapping-term-ms = <50>;
-                        bindings = <&kp J>, <&kp ESC>;
+                hmr: home_row_mod_right {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+
+                        flavor = "balanced";
+                        tapping-term-ms = <250>;
+                        quick-tap-ms = <150>;
+                        require-prior-idle-ms = <125>;
+
+                        bindings = <&kp>, <&kp>;
+
+                        /* Put the left-hand key-position numbers here. */
+                        hold-trigger-key-positions = < /* left side */ >;
+                        hold-trigger-on-release;
                 };
         };
 
