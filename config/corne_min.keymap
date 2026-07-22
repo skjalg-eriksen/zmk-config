@@ -11,14 +11,14 @@
 / {
 
         behaviors {
-                j_escape_200: j_escape {
+                j_escape_200: j_escape_200 {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <200>;
                         bindings = <&kp J>, <&kp ESC>;
                 };
 
-                j_escape_150: j_escape {
+                j_escape_150: j_escape_150 {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <150>;
@@ -26,14 +26,14 @@
                 };
 
 
-                j_escape_100: j_escape {
+                j_escape_100: j_escape_100 {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <100>;
                         bindings = <&kp J>, <&kp ESC>;
                 };
 
-                j_escape_50: j_escape {
+                j_escape_50: j_escape_50 {
                         compatible = "zmk,behavior-tap-dance";
                         #binding-cells = <0>;
                         tapping-term-ms = <50>;
