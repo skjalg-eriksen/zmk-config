@@ -9,6 +9,16 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+
+        behaviors {
+                j_escape: j_escape {
+                        compatible = "zmk,behavior-tap-dance";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <&kp J>, <&kp ESC>;
+                };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
