@@ -1,5 +1,5 @@
 # Corne Min ZMK Firmware Builds
-
+.
 This repository produces firmware for two different Corne Min configurations:
 
 * **Standard Split** — The left half acts as the central device and communicates directly with your computer over USB or Bluetooth.
