@@ -59,16 +59,6 @@
                         bindings = <&mo>, <&sk>;
                 };
 
-                raise_function: raise_function {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-
-                        flavor = "tap-preferred";
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <150>;
-
-                        bindings = <&mo>, <&sl>;
-                };
         };
 
         keymap {
@@ -80,12 +70,12 @@
 // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
 // | CTRL | A/ALT | S/CTL | D/GUI | F/SFT | G |   | H | J/SFT | K/GUI | L/CTL | ;/ALT | ' |
 // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | FN   |
-//                    | GUI | LWR/SFT | SPC |   | ENT | RSE/FN | ALT |
+//                    | GUI | LWR/SFT | SPC |   | ENT | RSE/ESC | ALT |
                         bindings = <
    &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &kp LCTRL &hml LALT A &hml LCTRL S &hml LGUI D &hml LSHFT F &kp G   &kp H &hmr RSHFT J &hmr RGUI K &hmr RCTRL L &hmr RALT SEMI &kp SQT
    &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &mo 3
-                  &kp LGUI &lower_shift 1 LSHFT &kp SPACE   &kp RET &raise_function 2 3 &kp RALT
+                  &kp LGUI &lower_shift 1 LSHFT &kp SPACE   &kp RET &lt 2 ESC &kp RALT
                         >;
                 };
                 lower_layer {
