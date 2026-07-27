@@ -1,0 +1,10 @@
+/.venv/
+/build/
+/.west/
+/zmk/
+/modules/
+/corne-min-board/
+/corne-min-rgbled/
+/prospector-module/
+/zephyr/*
+!/zephyr/module.yml

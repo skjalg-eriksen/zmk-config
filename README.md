@@ -98,3 +98,60 @@ Clears all stored settings and Bluetooth bonds on a Corne Min half.
 After flashing a reset image, flash the desired firmware again before using the device.
 
 </details>
+
+---
+
+## Local Builds
+
+Install the ZMK local toolchain first:
+
+```sh
+west init -l config
+west update
+west zephyr-export
+make deps
+make sdk
+make doctor
+```
+
+On Arch Linux, `make deps` installs Python packages into a local `.venv` so the system-managed Python environment is left alone. It also installs a compatible CMake version into the venv because Zephyr 3.5 does not configure cleanly with CMake 4.x, and pins `setuptools` for the older nanopb generator used by this Zephyr tree. `make sdk` downloads Zephyr SDK 0.16.9 to `~/.local/opt` and runs its setup for the ARM compiler toolchain used to build keyboard firmware.
+
+Build the Prospector dongle firmware with ZMK Studio:
+
+```sh
+make prospector_for_corne_min
+```
+
+The UF2 will be written to:
+
+```text
+build/prospector_for_corne_min/zephyr/zmk.uf2
+```
+
+Other useful targets:
+
+```sh
+make corne_min_left_for_prospector
+make corne_min_right_for_prospector
+make corne_min_left_with_studio
+make corne_min_right
+make all
+```
+
+Clean local build output:
+
+```sh
+make clean
+```
+
+After the first build, rerunning the same `make` target reuses its build directory and is much faster. If your ZMK checkout is not in the west workspace that contains this repo, pass the app path explicitly:
+
+```sh
+make prospector_for_corne_min ZMK_APP=/path/to/zmk/app
+```
+
+If your Zephyr SDK is installed somewhere else, pass that path explicitly:
+
+```sh
+make prospector_for_corne_min SDK_DIR=/path/to/zephyr-sdk-0.16.9
+```
