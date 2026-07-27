@@ -44,8 +44,19 @@
 
                         bindings = <&kp>, <&kp>;
 
-                        hold-trigger-key-positions = <0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38>;
-                        hold-trigger-on-release;
+                        hold-trigger-key-positions =
+                                <0 1 2 3 4 5 12 13 14 15 16 17
+                                24 25 26 27 28 29 36 37 38>;
+                                hold-trigger-on-release;
+                };
+
+                skq: sticky_key_quick_release {
+                        compatible = "zmk,behavior-sticky-key";
+                        #binding-cells = <1>;
+                        bindings = <&kp>;
+
+                        release-after-ms = <1000>;
+                        quick-release;
                 };
 
                 lower_shift: lower_shift {
@@ -56,9 +67,8 @@
                         tapping-term-ms = <200>;
                         quick-tap-ms = <150>;
 
-                        bindings = <&mo>, <&sk>;
+                        bindings = <&mo>, <&skq>;
                 };
-
         };
 
         keymap {
